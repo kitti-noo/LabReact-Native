@@ -5,8 +5,13 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Color Box</Text>
+      <View style={{width: 50,height:50, backgroundColor: 'green'}}></View>
+      <View style={{width: 50,height:50, backgroundColor: '#C0FFEE'}}></View>
+      <View style={{width: 50,height:50, backgroundColor: '#F00'}}></View>
+      <View style={{width: 50,height:50, backgroundColor: '#00F'}}></View>
+
+      <StatusBar style="auto" hidden={false}/>
     </View>
   );
 }
