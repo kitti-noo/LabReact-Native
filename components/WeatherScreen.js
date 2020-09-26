@@ -4,7 +4,7 @@ import Weather from './Weather';
 import { StatusBar } from 'expo-status-bar';
 
 
-export default function WeatherScreen({route}) {    
+export default function WeatherScreen({ route }) {
     return (
         <View>
             <Weather zipCode={route.params.zipCode} />
