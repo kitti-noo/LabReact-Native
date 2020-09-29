@@ -11,13 +11,14 @@ const availableZipItems = [
     { place: 'Chiangmai', code: '50000' },
     { place: 'Khonkaen', code: '40000' },
     { place: 'Chonburi', code: '20000' },
-   
-    
+    { place: 'Phatthalung', code: '93000' },
+    { place: 'Phuket', code: '83000'}
+     
 ]
 
 const ZipItem = ({ place, code, navigation }) => (
     <TouchableHighlight activeOpacity={0.8} 
-    underlayColor="#00D3FF" onPress={() => navigation.navigate('Weather', { zipCode: code })}>
+    underlayColor='#00D3FF' onPress={() => navigation.navigate('Weather', { zipCode: code })}>
         <View style={styles.flex}>
             <Text style = {styles.text }>{place}</Text>
             <Text style = {styles.text }>{code}</Text>
@@ -32,7 +33,7 @@ export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
         <View>
-             <ImageBackground source={require('../bg.jpg')} style={styles.backdrop} >
+             <ImageBackground source={require('../back.jpg')} style={styles.backdrop} >
             <FlatList 
                 data={availableZipItems}
                 keyExtractor={_keyExtractor}
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
         
     },
     text: {
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
        
     },
