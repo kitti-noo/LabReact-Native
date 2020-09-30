@@ -1,17 +1,31 @@
-import React from 'react';
-import { View, Text, StyleSheet,Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 
 export default function Forecast(props) {
-   
+
     //console.log('https://openweathermap.org/img/wn/'+props.icon+'@2x.png')
+
+    
+    const [date, setDate] = useState(new Date().toLocaleString());
+
+    useEffect(() => {
+        let secTimer = setInterval(() => {
+            setDate(new Date().toLocaleString())
+        }, 1000)
+
+        return () => clearInterval(secTimer);
+    }, []);
+
+
     return (
         <View style={styles.center}>
+            <Text>Date : {date}</Text>
             <Text style={styles.big}>{props.main}</Text>
             <Text style={styles.medium}>{props.description}</Text>
-            <Image style={{width:100,height:100}} source={{uri: 'http://openweathermap.org/img/wn/'+props.icon+'@2x.png'}}/>
-            <View style={{marginTop: 20}}>
-            
+            <Image style={{ width: 100, height: 100 }} source={{ uri: 'http://openweathermap.org/img/wn/' + props.icon + '@2x.png' }} />
+            <View style={{ marginTop: 20 }}>
+
                 <Text>
                     <Text style={styles.big}>{props.temp}  </Text>
                     <Text style={styles.medium}>°C</Text>
@@ -22,7 +36,7 @@ export default function Forecast(props) {
 }
 
 const styles = StyleSheet.create({
-    center: {        
+    center: {
         justifyContent: 'space-around',
         alignItems: 'center',
     },
